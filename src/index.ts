@@ -70,8 +70,8 @@ async function main() {
   //   console.log(`Server running at http://${hostname}:${port}`);
   // });
 
-  app.listen(8000, () => {
-    console.log("Now running on port 8080");
+  app.listen(8000, "0.0.0.0", () => {
+    console.log("Now running on port 8000");
   });
 }
 
