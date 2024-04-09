@@ -69,7 +69,6 @@ async function main() {
   // server.listen(port, hostname, () => {
   //   console.log(`Server running at http://${hostname}:${port}`);
   // });
-
   app.listen(10000, "0.0.0.0", () => {
     console.log("Now running on port 10000");
   });
