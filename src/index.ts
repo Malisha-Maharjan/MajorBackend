@@ -66,13 +66,13 @@ async function main() {
 
   const server = http.createServer(app);
   const port = 3000;
-  server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}`);
-  });
-
-  // app.listen(8000, () => {
-  //   console.log("Now running on port 8080");
+  // server.listen(port, hostname, () => {
+  //   console.log(`Server running at http://${hostname}:${port}`);
   // });
+
+  app.listen(8000, () => {
+    console.log("Now running on port 8080");
+  });
 }
 
 main();
