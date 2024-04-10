@@ -40,12 +40,17 @@ router.post("/api/login", async (req, res) => {
   //     data: token,
   //   });
   // } else {
-  const user = await userRepository.findOne({
-    where: {
-      userName: data["userName"].replace(),
-      password: data["password"],
-    },
-  });
+  const user = await userRepository
+    .createQueryBuilder("user")
+    .select()
+    .where("BINARY userName = :name", { name: data["userName"] })
+    .getOne();
+  if (!user) {
+    return createResponse<User>(res, 400, {
+      status: "error",
+      error: { message: ["Invalid Username Or Password"] },
+    });
+  }
   if (!user) {
     return createResponse<User>(res, 400, {
       status: "error",
