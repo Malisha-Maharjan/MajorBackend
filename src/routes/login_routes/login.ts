@@ -43,7 +43,10 @@ router.post("/api/login", async (req, res) => {
   const user = await userRepository
     .createQueryBuilder("user")
     .select()
-    .where("BINARY userName = :name", { name: data["userName"] })
+    .where("BINARY userName = :name AND BINARY password = :password", {
+      name: data["userName"],
+      password: data["password"],
+    })
     .getOne();
   if (!user) {
     return createResponse<User>(res, 400, {
