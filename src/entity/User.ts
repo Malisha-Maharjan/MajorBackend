@@ -44,10 +44,10 @@ export class User extends BaseEntity {
   @Column({ nullable: true, type: "longtext" })
   user_photo: string;
 
-  @Column({ nullable: false })
+  @Column("decimal", { nullable: false, precision: 7, scale: 10 })
   longitude: number;
 
-  @Column({ nullable: false })
+  @Column("decimal", { nullable: false, precision: 7, scale: 10 })
   latitude: number;
 
   @Column({ nullable: false })
