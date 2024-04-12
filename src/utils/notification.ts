@@ -83,6 +83,8 @@ requestBloodNotificationRouter.post(
             type: data["type"],
             status,
             requestType: data["requestType"],
+            requestLocationLongitude: data["requestLocationLongitude"],
+            requestLocationLatitude: data["requestLocationLatitude"],
             sent_to: `${users}`,
             notification: {
               title: "Blood Request",
@@ -149,6 +151,8 @@ respondNotificationRouter.post(
             status,
             requestType: data["requestType"],
             sent_to: requestInitiatorInfo.userName,
+            requestLocationLongitude: data["requestLocationLongitude"],
+            requestLocationLatitude: data["requestLocationLatitude"],
             notification: {
               title: "Blood Request Accepted",
               body: `${responderInfo.userName} has responded your request.`,
@@ -240,6 +244,8 @@ confirmNotificationRouter.post(
             users: `${users}`,
             requestType: data["requestType"],
             sent_to: responderInfo.userName,
+            requestLocationLongitude: data["requestLocationLongitude"],
+            requestLocationLatitude: data["requestLocationLatitude"],
             notification: {
               title: "Blood Request Accepted",
               body: `${requestInitiatorInfo.userName} has confirmed your response. Please hurry `,
@@ -318,6 +324,8 @@ requestAmbulanceNotificationRouter.post(
         type: data["type"],
         status,
         requestType: data["requestType"],
+        requestLocationLongitude: data["requestLocationLongitude"],
+        requestLocationLatitude: data["requestLocationLatitude"],
         sent_to: `${users}`,
       },
     };
@@ -336,6 +344,8 @@ requestAmbulanceNotificationRouter.post(
             status,
             requestType: data["requestType"],
             sent_to: `${users}`,
+            requestLocationLongitude: data["requestLocationLongitude"],
+            requestLocationLatitude: data["requestLocationLatitude"],
             notification: {
               title: "Ambulance Request",
               body: `${username} is urgently requesting for an ambulance.`,
@@ -399,6 +409,8 @@ respondAmbulanceNotificationRouter.post(
             status,
             requestType: data["requestType"],
             sent_to: requestInitiatorInfo.userName,
+            requestLocationLongitude: data["requestLocationLongitude"],
+            requestLocationLatitude: data["requestLocationLatitude"],
             notification: {
               title: "Ambulance Request Accepted",
               body: `${responderInfo.userName} has responded your request.`,
@@ -485,6 +497,8 @@ confirmAmbulanceNotificationRouter.post(
             users: `${users}`,
             requestType: data["requestType"],
             sent_to: responderInfo.userName,
+            requestLocationLongitude: data["requestLocationLongitude"],
+            requestLocationLatitude: data["requestLocationLatitude"],
             notification: {
               title: "Ambulance Request Accepted",
               body: `${requestInitiatorInfo.userName} has accepted your service. Please proceed towards the destination`,
